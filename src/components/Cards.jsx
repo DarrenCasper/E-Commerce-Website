@@ -6,8 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useCart } from "./cartContext";
+import { toast } from "sonner"
 
 export function ProductCard({ product }) {
+  const { addToCart} = useCart()
+
   return (
     <Card className="overflow-hidden rounded-2xl border border-white/10 bg-white text-black shadow-md transition-transform duration-200 hover:-translate-y-1">
       <div className="h-52 w-full overflow-hidden bg-zinc-200">
@@ -33,7 +37,10 @@ export function ProductCard({ product }) {
       </CardContent>
 
       <CardFooter>
-        <Button className="w-full rounded-xl">Buy Product</Button>
+        <Button className="w-full rounded-xl"
+                onClick={() => {
+                  addToCart(product)
+                  toast.success(`${product.title} is in the cart!`)}}>Buy Product</Button>
       </CardFooter>
     </Card>
   );
