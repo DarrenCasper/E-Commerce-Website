@@ -24,6 +24,14 @@ export function VoucherCard({ voucher }) {
         <div>
           <span className="font-semibold">Period:</span> {voucher.startDate} - {voucher.endDate}
         </div>
+
+        <div>
+          <span className="font-semibold">Max Discount: Rp {voucher.maxDiscount.toLocaleString("id-ID")}</span>
+        </div>
+
+        <div>
+          <span className="font-semibold">Min Purchase: Rp {voucher.minPurchase.toLocaleString("id-ID")}</span>
+        </div>
       </CardContent>
     </Card>
   );
