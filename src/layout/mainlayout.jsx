@@ -1,40 +1,69 @@
-import { Outlet, NavLink } from "react-router-dom";
-import RollingText from "../components/RollingText";
+import { Outlet, NavLink, Link } from "react-router-dom";
+import { useAuth } from "@/components/AuthProvider";
 
 export const MainLayout = () => {
-    const linkClass = ({isActive}) => 
-        isActive ? "text-white font-semibold" : "text-white/80 hover:text-blue-50 transition-colors"
-    
+  const { user, logOut, isAuthenticated } = useAuth();
 
-    return(
-        <div className="min-h-screen bg-black text-white">
-            <div className="flex flex-row items-center justify-between px-6 border-b border-white/10 bg-black/80 backdrop-blur">
-                <RollingText text="VoucherIn" inView={true} className="text-lg font-bold text-center"></RollingText>
+  const linkClass = ({ isActive }) =>
+    isActive
+      ? "text-white font-semibold"
+      : "text-white/80 hover:text-blue-50 transition-colors";
 
-                <nav className="relative top-0 right-200 z-50 border-b border-white/10 bg-black/80 backdrop-blur px-6 py-4">
-                    <div className="mx-auto flex max-w-6xl items-center gap-6">
-                        <NavLink to="/" end className={linkClass}>
-                            Products
-                        </NavLink>
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <header className="flex items-center justify-between border-b border-white/10 bg-black/80 px-6 py-4 backdrop-blur">
+        <div className="text-lg font-bold">VoucherIn</div>
 
-                        <NavLink to="/voucher" end className={linkClass}>
-                            Vouchers
-                        </NavLink>
+        <nav className="flex items-center gap-6">
+          <NavLink to="/" className={linkClass}>
+            Products
+          </NavLink>
+          <NavLink to="/voucher" className={linkClass}>
+            Vouchers
+          </NavLink>
+          <NavLink to="/cart" className={linkClass}>
+            Cart
+          </NavLink>
+          <NavLink to="/checkout" className={linkClass}>
+            Checkout
+          </NavLink>
+        </nav>
 
-                        <NavLink to="/cart" end className={linkClass}>
-                            Cart
-                        </NavLink>
-
-                        <NavLink to="/checkout" end className={linkClass}>
-                            Checkout
-                        </NavLink>
-                    </div>
-                </nav>
-            </div>
-
-            <main className="mx-auto my-auto">
-                <Outlet/>
-            </main>
+        <div className="flex items-center gap-3">
+          {isAuthenticated ? (
+            <>
+              <span className="text-sm text-white/80">
+                Hi, {user.name}
+              </span>
+              <button
+                onClick={logOut}
+                className="rounded-lg border border-white/10 px-3 py-1 text-sm hover:bg-white/10"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/signin"
+                className="rounded-lg border border-white/10 px-3 py-1 text-sm hover:bg-white/10"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/register"
+                className="rounded-lg bg-white px-3 py-1 text-sm text-black"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
-    )
-}
+      </header>
+
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
