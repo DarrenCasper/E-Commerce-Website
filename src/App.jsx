@@ -6,12 +6,13 @@ import { CartsPage } from "./pages/CartPage"
 import { CheckoutPage } from "./pages/CheckoutPage"
 import { SignInPage } from "./pages/SignInPage"
 import { ProtectedRoute } from "./components/ProtectedRoute"
+import { RegisterPage } from "./pages/RegisterPage"
 
 function App() {
   return (
     <Routes>
       <Route path="/signin" element={<SignInPage />} />
-      {/* <Route path="/register" element={<RegisterPage />} /> */}
+      <Route path="/register" element={<RegisterPage />} /> 
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<ProductPage />} />
@@ -22,7 +23,7 @@ function App() {
             <ProtectedRoute>
               <CartsPage />
             </ProtectedRoute>
-          }
+          }d 
         />
         <Route
           path="/checkout"
