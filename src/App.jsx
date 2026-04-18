@@ -7,6 +7,9 @@ import { CheckoutPage } from "./pages/CheckoutPage"
 import { SignInPage } from "./pages/SignInPage"
 import { ProtectedRoute } from "./components/ProtectedRoute"
 import { RegisterPage } from "./pages/RegisterPage"
+import { AdminRoute } from "./Route/AdminRoute"
+import { AdminProductCreatePage } from "./components/AdminProductCreatePage"
+import { AdminVoucherCreatePage } from "./components/AdminVouchersCreatePage"
 
 function App() {
   return (
@@ -23,7 +26,7 @@ function App() {
             <ProtectedRoute>
               <CartsPage />
             </ProtectedRoute>
-          }d 
+          } 
         />
         <Route
           path="/checkout"
@@ -33,6 +36,26 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/*Admin only*/}
+        <Route
+          path="/admin/products/create"
+          element={
+            <AdminRoute>
+              <AdminProductCreatePage/>
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/vouchers/create"
+          element={
+            <AdminRoute>
+              <AdminVoucherCreatePage/>
+            </AdminRoute>
+          }
+        />
+
       </Route>
     </Routes>
   );

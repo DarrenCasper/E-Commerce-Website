@@ -2,7 +2,7 @@ import { Outlet, NavLink, Link } from "react-router-dom";
 import { useAuth } from "@/components/AuthProvider";
 
 export const MainLayout = () => {
-  const { user, logOut, isAuthenticated } = useAuth();
+  const { user, logout, isAuthenticated } = useAuth();
 
   const linkClass = ({ isActive }) =>
     isActive
@@ -36,7 +36,7 @@ export const MainLayout = () => {
                 Hi, {user.name}
               </span>
               <button
-                onClick={logOut}
+                onClick={logout}
                 className="rounded-lg border border-white/10 px-3 py-1 text-sm hover:bg-white/10"
               >
                 Logout
