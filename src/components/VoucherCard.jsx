@@ -54,7 +54,7 @@ export function VoucherCard({ voucher, onDelete }) {
         <div><b>Max:</b> Rp {Number(voucher.max_discount)?.toLocaleString("id-ID")}</div>
         <div><b>Min:</b> Rp {Number(voucher.min_purchase)?.toLocaleString("id-ID")}</div>
 
-        {/* 🔥 ADMIN BUTTON */}
+        {/*  ADMIN BUTTON */}
         {user?.role === "admin" && (
           <div className="mt-3 flex flex-col gap-2">
             <Button
@@ -69,7 +69,7 @@ export function VoucherCard({ voucher, onDelete }) {
 
             <Button
               variant="destructive"
-              className="w-full"
+              className="w-full text-red-400"
               onClick={handleDelete}
             >
               Delete

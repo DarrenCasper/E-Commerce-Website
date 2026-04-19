@@ -10,12 +10,15 @@ import { RegisterPage } from "./pages/RegisterPage"
 import { AdminRoute } from "./Route/AdminRoute"
 import { AdminProductCreatePage } from "./components/AdminProductCreatePage"
 import { AdminVoucherCreatePage } from "./components/AdminVouchersCreatePage"
+import  AdminProductEditPage  from "./components/AdminProductEditPage"
+import  AdminVoucherEditPage from "./components/AdminVoucherEditPage"
+
 
 function App() {
   return (
     <Routes>
       <Route path="/signin" element={<SignInPage />} />
-      <Route path="/register" element={<RegisterPage />} /> 
+      <Route path="/register" element={<RegisterPage />} />
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<ProductPage />} />
@@ -26,7 +29,7 @@ function App() {
             <ProtectedRoute>
               <CartsPage />
             </ProtectedRoute>
-          } 
+          }
         />
         <Route
           path="/checkout"
@@ -42,7 +45,7 @@ function App() {
           path="/admin/products/create"
           element={
             <AdminRoute>
-              <AdminProductCreatePage/>
+              <AdminProductCreatePage />
             </AdminRoute>
           }
         />
@@ -51,11 +54,28 @@ function App() {
           path="/admin/vouchers/create"
           element={
             <AdminRoute>
-              <AdminVoucherCreatePage/>
+              <AdminVoucherCreatePage />
             </AdminRoute>
           }
         />
 
+        <Route
+          path="/admin/products/edit/:id"
+          element={
+            <AdminRoute>
+              <AdminProductEditPage />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/vouchers/edit/:id"
+          element={
+            <AdminRoute>
+              <AdminVoucherEditPage />
+            </AdminRoute>
+          }
+        />
       </Route>
     </Routes>
   );

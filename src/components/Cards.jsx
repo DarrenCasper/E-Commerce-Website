@@ -56,7 +56,7 @@ export function ProductCard({ product, onDelete }) {
 
       <CardHeader className="pb-2 text-center">
         <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-          {product.category_name} {/* 🔥 dari backend */}
+          {product.category_name} {/*  dari backend */}
         </p>
         <CardTitle className="line-clamp-2 text-lg">
           {product.title}
@@ -76,7 +76,6 @@ export function ProductCard({ product, onDelete }) {
           className="w-full rounded-xl"
           onClick={() => {
             addToCart(product);
-            toast.success(`${product.title} is in the cart!`);
           }}
         >
           Buy Product
@@ -97,7 +96,7 @@ export function ProductCard({ product, onDelete }) {
 
             <Button
               variant="destructive"
-              className="w-full"
+              className="w-full text-red-700"
               onClick={handleDelete}
             >
               Delete
