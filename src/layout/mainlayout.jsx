@@ -27,6 +27,11 @@ export const MainLayout = () => {
           <NavLink to="/checkout" className={linkClass}>
             Checkout
           </NavLink>
+          {user?.role === "admin" && (
+            <NavLink to="/admin/dashboard" className={linkClass}>
+              Dashboard
+            </NavLink>
+          )}
         </nav>
 
         <div className="flex items-center gap-3">

@@ -10,8 +10,9 @@ import { RegisterPage } from "./pages/RegisterPage"
 import { AdminRoute } from "./Route/AdminRoute"
 import { AdminProductCreatePage } from "./components/AdminProductCreatePage"
 import { AdminVoucherCreatePage } from "./components/AdminVouchersCreatePage"
-import  AdminProductEditPage  from "./components/AdminProductEditPage"
-import  AdminVoucherEditPage from "./components/AdminVoucherEditPage"
+import AdminProductEditPage from "./components/AdminProductEditPage"
+import AdminVoucherEditPage from "./components/AdminVoucherEditPage"
+import AdminDashboardPage from "./components/AdminDashboard"
 
 
 function App() {
@@ -76,7 +77,18 @@ function App() {
             </AdminRoute>
           }
         />
+
+        <Route
+          path="/admin/dashboard"
+          element={
+            <AdminRoute>
+              <AdminDashboardPage />
+            </AdminRoute>
+          }>
+        </Route>
       </Route>
+
+
     </Routes>
   );
 }
