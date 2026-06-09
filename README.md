@@ -398,4 +398,8 @@ Beberapa hal yang dapat dikembangkan lebih lanjut:
 
 ## Author
 
-Project ini dikembangkan oleh Darren Casper sebagai project e-commerce berbasis voucher digital.
+  Project ini dikerjakan secara Kelompok oleh:
+  1. Darren Dexter Thio
+  2. Valian Tsaqif Hidayat
+  3. Ilan Hawwari Prasojo
+  4. Bagas Aryo Dananjoyo
